@@ -1,0 +1,10 @@
+{%if not  error_message %}
+<p>VOTES STATISTICS</p>
+<p>Choice     -------     Votes</p>
+{% for choice in question.choice_set.all %}
+<p>{{choice}} -------      {{choice.votes}}</p>
+{% endfor %}
+{% else %}
+    {{error_message}}
+{% endif %}
+<a href="{% url 'polls:results' question.id %}">Results</a>
